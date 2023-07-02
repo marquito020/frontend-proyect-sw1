@@ -22,7 +22,7 @@ RUN apt-get update -qq && \
 
 # Install node modules
 COPY --link package.json package-lock.json ./
-RUN npm install --production=false
+RUN npm install
 
 # Copy application code
 COPY --link . .
@@ -41,4 +41,4 @@ FROM base
 COPY --from=build /app /app
 
 # Start the server by default, this can be overwritten at runtime
-CMD [ "npm", "run", "preview" ]
+CMD [ "npm", "run", "build" ]
