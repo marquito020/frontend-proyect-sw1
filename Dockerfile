@@ -18,7 +18,7 @@ FROM base as build
 
 # Install packages needed to build node modules
 RUN apt-get update -qq && \
-    apt-get install -y python-is-python3 pkg-config build-essential 
+    apt-get install -y python-is-python3 pkg-config build-essential
 
 # Install node modules
 COPY --link package.json package-lock.json ./
@@ -38,7 +38,7 @@ RUN npm prune --production
 FROM base
 
 # Copy built application
-COPY --from=dist /app /app
+COPY --from=build /app /app
 
 # Start the server by default, this can be overwritten at runtime
 CMD [ "npm", "run", "dev" ]
