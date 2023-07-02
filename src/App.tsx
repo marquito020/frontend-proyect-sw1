@@ -1,7 +1,6 @@
 import { Suspense, lazy } from "react";
 import { Provider } from "react-redux";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import reactLogo from "./assets/react.svg";
 
 import { store } from "./redux/store";
 import { Loading } from "./pages";
