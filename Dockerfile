@@ -38,7 +38,7 @@ RUN npm prune --production
 FROM base
 
 # Copy built application
-COPY --from=build /app /app
+COPY --from=dist /app /app
 
 # Start the server by default, this can be overwritten at runtime
-CMD [ "npm", "run", "build" ]
+CMD [ "npm", "run", "dev" ]
